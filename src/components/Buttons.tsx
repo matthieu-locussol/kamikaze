@@ -37,23 +37,6 @@ export const Buttons = observer(() => {
       <Root>
          <Button
             variant="contained"
-            color="info"
-            startIcon={<PlusIcon />}
-            endIcon={<PlusIcon />}
-            disabled={gameStore.lost || gameStore.won}
-            onClick={() => {
-               gameStore.guessMore();
-               showLastDrawnCard();
-            }}
-            sx={{ p: 2, px: 2 }}
-         >
-            <Typography variant="h3" fontWeight="bold" color="white">
-               Plus
-            </Typography>
-         </Button>
-         <ResetIcon />
-         <Button
-            variant="contained"
             color="error"
             startIcon={<MinusIcon />}
             endIcon={<MinusIcon />}
@@ -66,6 +49,23 @@ export const Buttons = observer(() => {
          >
             <Typography variant="h3" fontWeight="bold" color="white">
                Moins
+            </Typography>
+         </Button>
+         <ResetIcon />
+         <Button
+            variant="contained"
+            color="info"
+            startIcon={<PlusIcon />}
+            endIcon={<PlusIcon />}
+            disabled={gameStore.lost || gameStore.won}
+            onClick={() => {
+               gameStore.guessMore();
+               showLastDrawnCard();
+            }}
+            sx={{ p: 2, px: 2 }}
+         >
+            <Typography variant="h3" fontWeight="bold" color="white">
+               Plus
             </Typography>
          </Button>
       </Root>

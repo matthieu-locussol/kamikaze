@@ -70,9 +70,13 @@ export class GameStore {
    public drawCard(): Card {
       const [card, ...deck] = this.state.deck;
 
+      const newBoard = [...this.state.board];
+      newBoard[this.state.currentBoardIndex] = card;
+
       this.state = {
          ...this.state,
          deck,
+         board: newBoard,
       };
 
       return card;
