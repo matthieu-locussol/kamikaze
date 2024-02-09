@@ -7,19 +7,19 @@ export const ModeScreen = observer(() => {
 
    return (
       <Box>
-         <Typography variant="h1" align="center" fontWeight="bold" sx={{ mb: 4 }}>
+         <Typography variant="h1" align="center" fontWeight="bold" gutterBottom>
             Kamikaze
          </Typography>
-         <Typography variant="h1" align="center" sx={{ mb: 8 }}>
+         <Typography variant="h1" align="center" sx={{ mb: 4 }}>
             Choisissez un niveau de difficulté
          </Typography>
-         <Stack direction={{ xs: 'column', md: 'row' }} gap={8}>
+         <Stack direction={{ xs: 'column', md: 'row' }} gap={4}>
             <Card variant="clickable" onClick={() => gameStore.chooseMode('Normal')}>
                <Typography variant="h1" align="center">
                   ✨ &nbsp;Normal&nbsp; ✨
                </Typography>
             </Card>
-            <Card variant="clickable" onClick={() => gameStore.chooseMode('Hardcore')}>
+            <Card variant="outlined" sx={{ opacity: 0.6 }}>
                <DangerTypography variant="h1" align="center" fontWeight="bold">
                   💀 &nbsp;Hardcore&nbsp; 💀
                </DangerTypography>
