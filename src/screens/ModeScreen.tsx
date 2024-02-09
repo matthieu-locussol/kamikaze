@@ -19,9 +19,9 @@ export const ModeScreen = observer(() => {
                   ✨ &nbsp;Normal&nbsp; ✨
                </Typography>
             </Card>
-            <Card variant="outlined" sx={{ opacity: 0.6 }}>
+            <Card variant="clickable" onClick={() => gameStore.chooseMode('Hardcore')}>
                <DangerTypography variant="h1" align="center" fontWeight="bold">
-                  💀 &nbsp;Hardcore&nbsp; 💀
+                  💀 &nbsp;Shaeff&nbsp; 💀
                </DangerTypography>
             </Card>
          </Stack>

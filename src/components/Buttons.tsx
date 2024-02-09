@@ -28,14 +28,14 @@ export const Buttons = observer(() => {
             variant: 'default',
             persist: true,
             onClose: (e, reason) => handleClose(e, reason),
-            message: gameStore.state.lastLostCard && gameStore.state.lastDrawnCard && (
+            message: gameStore.state.lastCard && gameStore.state.lastDrawnCard && (
                <Box width="100%" display="flex" alignItems="center" justifyContent="space-between">
                   <Box display="flex" alignItems="center" flexDirection="column">
                      <img
-                        src={`/images/${gameStore.state.lastLostCard.value}_${gameStore.state.lastLostCard.type}.png`}
+                        src={`/images/${gameStore.state.lastCard.value}_${gameStore.state.lastCard.type}.png`}
                         width={60}
                      />
-                     <Typography>{getCardName(gameStore.state.lastLostCard)}</Typography>
+                     <Typography>{getCardName(gameStore.state.lastCard)}</Typography>
                   </Box>
                   <ArrowIcon sx={{ mb: 2, mx: 2 }} />
                   <Box display="flex" alignItems="center" flexDirection="column">

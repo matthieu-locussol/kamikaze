@@ -36,7 +36,7 @@ export class GameStore {
          openDrinkModal: false,
          openCulSecsModal: false,
          lastDrawnCard: null,
-         lastLostCard: null,
+         lastCard: null,
       };
    }
 
@@ -106,6 +106,7 @@ export class GameStore {
       const cardToGuessValue = getCardValue(cardToGuess);
       const cardDrawnValue = getCardValue(cardDrawn);
 
+      this.setLastCard(cardToGuess);
       this.setLastDrawnCard(cardDrawn);
 
       if (cardDrawnValue > cardToGuessValue) {
@@ -126,7 +127,7 @@ export class GameStore {
       const cardToGuessValue = getCardValue(cardToGuess);
       const cardDrawnValue = getCardValue(cardDrawn);
 
-      this.setLastLostCard(cardToGuess);
+      this.setLastCard(cardToGuess);
       this.setLastDrawnCard(cardDrawn);
 
       if (cardDrawnValue < cardToGuessValue) {
@@ -154,6 +155,8 @@ export class GameStore {
    public executeIncorrectGuess() {
       const newSips = this.state.currentBoardIndex + 1;
 
+      this.updateHiddenIndexes();
+
       this.state = {
          ...this.state,
          sips: this.state.sips + newSips,
@@ -168,6 +171,31 @@ export class GameStore {
       }
 
       this.saveState();
+   }
+
+   public get canDrawCard() {
+      return this.state.deck.length > 0;
+   }
+
+   public updateHiddenIndexes() {
+      this.state.board.forEach((_, index) => {
+         if (
+            this.isIndexHidden(index) &&
+            this.state.currentBoardIndex >= index &&
+            this.canDrawCard
+         ) {
+            const [card, ...deck] = this.state.deck;
+
+            const newBoard = [...this.state.board];
+            newBoard[index] = card;
+
+            this.state = {
+               ...this.state,
+               deck,
+               board: newBoard,
+            };
+         }
+      });
    }
 
    public executeEqualityGuess() {
@@ -302,10 +330,10 @@ export class GameStore {
       this.saveState();
    }
 
-   public setLastLostCard(card: Card) {
+   public setLastCard(card: Card) {
       this.state = {
          ...this.state,
-         lastLostCard: card,
+         lastCard: card,
       };
 
       this.saveState();
