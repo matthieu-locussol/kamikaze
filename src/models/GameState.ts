@@ -16,6 +16,7 @@ export const zGameState = z.object({
    openDrinkModal: z.boolean(),
    openCulSecsModal: z.boolean(),
    lastDrawnCard: zCard.nullable(),
+   lastLostCard: zCard.nullable(),
 });
 
 export type GameState = z.infer<typeof zGameState>;

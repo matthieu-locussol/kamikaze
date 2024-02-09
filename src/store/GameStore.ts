@@ -36,6 +36,7 @@ export class GameStore {
          openDrinkModal: false,
          openCulSecsModal: false,
          lastDrawnCard: null,
+         lastLostCard: null,
       };
    }
 
@@ -125,6 +126,7 @@ export class GameStore {
       const cardToGuessValue = getCardValue(cardToGuess);
       const cardDrawnValue = getCardValue(cardDrawn);
 
+      this.setLastLostCard(cardToGuess);
       this.setLastDrawnCard(cardDrawn);
 
       if (cardDrawnValue < cardToGuessValue) {
@@ -295,6 +297,15 @@ export class GameStore {
       this.state = {
          ...this.state,
          openCulSecsModal: false,
+      };
+
+      this.saveState();
+   }
+
+   public setLastLostCard(card: Card) {
+      this.state = {
+         ...this.state,
+         lastLostCard: card,
       };
 
       this.saveState();
