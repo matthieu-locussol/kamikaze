@@ -143,6 +143,8 @@ export class GameStore {
 
       if (this.won) {
          this.openWinModal();
+      } else if (this.lost) {
+         this.openLoseModal();
       }
 
       this.saveState();
