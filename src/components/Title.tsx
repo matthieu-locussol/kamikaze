@@ -12,7 +12,7 @@ export const Title = observer(() => {
          </Typography>
          {!gameStore.lost && !gameStore.won && (
             <Typography variant="h1" align="center" gutterBottom>
-               Partie {gameStore.state.mode === 'Normal' ? 'Normal' : 'Shaeff'}
+               Partie {gameStore.state.mode === 'Normal' ? 'Normale' : 'Shaeff'}
             </Typography>
          )}
          {gameStore.lost && (
