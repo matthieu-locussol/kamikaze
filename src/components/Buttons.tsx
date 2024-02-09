@@ -45,7 +45,7 @@ export const Buttons = observer(() => {
                gameStore.guessMore();
                showLastDrawnCard();
             }}
-            sx={{ p: 2, px: 6 }}
+            sx={{ p: 2, px: 2 }}
          >
             <Typography variant="h3" fontWeight="bold" color="white">
                Plus
@@ -62,7 +62,7 @@ export const Buttons = observer(() => {
                gameStore.guessLess();
                showLastDrawnCard();
             }}
-            sx={{ p: 2, px: 6 }}
+            sx={{ p: 2, px: 2 }}
          >
             <Typography variant="h3" fontWeight="bold" color="white">
                Moins
@@ -72,9 +72,11 @@ export const Buttons = observer(() => {
    );
 });
 
-const Root = styled(Box)(({ theme }) => ({
-   display: 'flex',
-   justifyContent: 'center',
-   gap: theme.spacing(8),
-   marginTop: theme.spacing(4),
-}));
+const Root = styled(Box)(({ theme }) =>
+   theme.unstable_sx({
+      display: 'flex',
+      justifyContent: 'center',
+      gap: { xs: 2, md: 8 },
+      mt: { xs: 0, md: 4 },
+   }),
+);

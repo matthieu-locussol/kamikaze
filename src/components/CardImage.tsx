@@ -21,13 +21,15 @@ interface StyleProps {
    active: boolean;
 }
 
-const Root = styled(Box)({
-   width: '12%',
-   display: 'flex',
-   flexDirection: 'column',
-   alignItems: 'center',
-   justifyContent: 'center',
-});
+const Root = styled(Box)(({ theme }) =>
+   theme.unstable_sx({
+      width: { xs: '100%', sm: '8%', md: '12%' },
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+   }),
+);
 
 const ImageWrapper = styled(Box, {
    shouldForwardProp: (prop) => prop !== 'active',

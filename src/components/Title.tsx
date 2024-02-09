@@ -7,7 +7,7 @@ export const Title = observer(() => {
 
    return (
       <>
-         <Typography variant="h1" align="center" fontWeight="bold" letterSpacing={2} gutterBottom>
+         <Typography variant="h1" align="center" fontWeight="bold" letterSpacing={2}>
             Kamikaze
          </Typography>
          {!gameStore.lost && !gameStore.won && (

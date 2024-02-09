@@ -12,9 +12,9 @@ import { WinModal } from '../components/WinModal';
 export const NormalScreen = observer(() => (
    <Box>
       <Title />
-      <Statistics />
       <Board />
       <Buttons />
+      <Statistics />
       <WinModal />
       <LoseModal />
       <DrinkModal />

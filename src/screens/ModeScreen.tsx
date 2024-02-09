@@ -7,7 +7,7 @@ export const ModeScreen = observer(() => {
 
    return (
       <Box>
-         <Typography variant="h1" align="center" fontWeight="bold" gutterBottom>
+         <Typography variant="h1" align="center" fontWeight="bold">
             Kamikaze
          </Typography>
          <Typography variant="h1" align="center" sx={{ mb: 4 }}>

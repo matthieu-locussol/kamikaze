@@ -43,15 +43,15 @@ export const theme = createTheme({
             "Play, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
       },
       h1: {
-         fontSize: 32,
+         fontSize: '2rem',
          color: palette.text.primary,
       },
       h2: {
-         fontSize: 24,
+         fontSize: '1.5rem',
          color: palette.text.primary,
       },
       h3: {
-         fontSize: 20,
+         fontSize: '1.25rem',
          color: palette.text.primary,
       },
       body1: {

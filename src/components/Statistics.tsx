@@ -23,11 +23,14 @@ export const Statistics = observer(() => {
    );
 });
 
-const Root = styled(Box)(() => ({
-   display: 'flex',
-   alignItems: 'center',
-   flexDirection: 'column',
-}));
+const Root = styled(Box)(({ theme }) =>
+   theme.unstable_sx({
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      p: { xs: 2, md: 4 },
+   }),
+);
 
 const DisplayedStatistic = styled(Box)(() => ({
    display: 'flex',
