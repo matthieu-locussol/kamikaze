@@ -11,7 +11,7 @@ export const Board = observer(() => {
          {gameStore.state.board.map(({ type, value }, idx) => (
             <CardImage
                src={
-                  gameStore.isIndexHidden(idx)
+                  gameStore.isIndexHidden(idx) && gameStore.state.currentBoardIndex <= idx
                      ? '/images/HIDDEN.png'
                      : `/images/${value}_${type}.png`
                }

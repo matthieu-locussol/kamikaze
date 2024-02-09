@@ -84,10 +84,6 @@ export class GameStore {
    }
 
    public isIndexHidden(index: number): boolean {
-      if (this.state.currentBoardIndex > index) {
-         return false;
-      }
-
       if (this.state.mode === 'Normal') {
          return NORMAL_HIDDEN_INDEXES.includes(index);
       } else if (this.state.mode === 'Hardcore') {
@@ -173,16 +169,14 @@ export class GameStore {
       this.saveState();
    }
 
-   public get canDrawCard() {
-      return this.state.deck.length > 0;
-   }
-
    public updateHiddenIndexes() {
-      this.state.board.forEach((_, index) => {
+      const board = [...this.state.board];
+
+      board.forEach((_, index) => {
          if (
             this.isIndexHidden(index) &&
             this.state.currentBoardIndex >= index &&
-            this.canDrawCard
+            this.state.deck.length > 0
          ) {
             const [card, ...deck] = this.state.deck;
 
